@@ -24,7 +24,7 @@ import { Iconify } from 'src/components/iconify';
 import { Scrollbar } from 'src/components/scrollbar';
 import { AnimateBorder } from 'src/components/animate';
 
-import UpdateProfileDialog from 'src/sections/dashboard/profile/update-profile1';
+import UpdateProfileDialog from 'src/sections/dashboard/profile/update-profile';
 import UpdatePasswordDialog from 'src/sections/dashboard/profile/update-password';
 
 import { LogOutButton } from './log-out-button';
@@ -39,9 +39,7 @@ export function AccountDrawer({ data = [], sx, ...other }) {
   const [openPasswordDialog, setOpenPasswordDialog] = useState(false);
   const [openProfileDialog, setOpenProfileDialog] = useState(false);
 
-  const profileImageUrl = user?.avatar
-    ? `${CONFIG.apiUrl}/upload/profiles/admin/${user.avatar}`
-    : undefined;
+  const profileImageUrl = user?.avatar ? `${CONFIG.apiUrl}/upload/admin/${user.avatar}` : undefined;
 
   const renderAvatar = () => (
     <AnimateBorder

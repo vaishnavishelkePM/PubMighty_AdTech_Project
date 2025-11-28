@@ -96,7 +96,7 @@ export default function UpdateProfileDialog({ open, onClose }) {
 
     const currentUsername = user?.username || '';
     const currentProfileUrl = user?.avatar
-      ? `${CONFIG.assetsUrl || CONFIG.apiUrl}/upload/profiles/admin/${user.avatar}`
+      ? `${CONFIG.assetsUrl || CONFIG.apiUrl}/upload/admin/${user.avatar}`
       : undefined;
 
     setUsername(currentUsername);
@@ -210,7 +210,7 @@ export default function UpdateProfileDialog({ open, onClose }) {
 
       setLoading(true);
 
-      const res = await axios.post(`${CONFIG.apiUrl}/v1/admin/profile/update`, formData, {
+      const res = await axios.post(`${CONFIG.apiUrl}/v1/admin/profiles/update`, formData, {
         headers,
         withCredentials: true,
         validateStatus: () => true,
@@ -233,7 +233,7 @@ export default function UpdateProfileDialog({ open, onClose }) {
       }
 
       const updatedUrl = updatedUser?.avatar
-        ? `${CONFIG.assetsUrl || CONFIG.apiUrl}/upload/profiles/admin/${updatedUser.avatar}`
+        ? `${CONFIG.assetsUrl || CONFIG.apiUrl}/upload/admin/${updatedUser.avatar}`
         : undefined;
 
       setPreviewUrl(updatedUrl);
